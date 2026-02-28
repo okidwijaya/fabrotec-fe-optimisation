@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛍 Product Catalog Application (Next.js + TypeScript)
 
-## Getting Started
+This project is a product catalog application built using **Next.js (App
+Router)** and **TypeScript**.\
+The application displays products retrieved from a RESTful API and
+provides filtering, sorting, and detailed product pages.
 
-First, run the development server:
+------------------------------------------------------------------------
 
-```bash
+## 🚀 Features
+
+### Product List Page
+
+-   Fetch products from REST API
+-   Display product image, title, description, and price
+-   Filter products by category
+-   Sort products by price (Ascending / Descending)
+
+### Product Detail Page
+
+-   Image carousel
+-   Title and description
+-   Price display
+-   Availability badge (In Stock / Out of Stock)
+
+------------------------------------------------------------------------
+
+## 🌐 API Source
+
+Data is retrieved from: https://dummyjson.com/products
+
+API Documentation: https://dummyjson.com/docs/products
+
+------------------------------------------------------------------------
+
+## 🧱 Tech Stack
+
+-   Next.js (App Router)
+-   TypeScript
+-   React Server Components
+-   Next.js Image Optimization
+
+------------------------------------------------------------------------
+
+## 📁 Project Structure
+
+src/ ├── app/ │ ├── page.tsx \# Product list page │ └──
+product/\[id\]/page.tsx \# Product detail page │ ├── components/ │ ├──
+ProductCard.tsx │ └── ProductCarousel.tsx │ ├── services/ │ └──
+product.service.ts \# API logic layer │ ├── types/ │ └── product.ts
+
+------------------------------------------------------------------------
+
+## ⚙️ Architecture Decisions
+
+### ✅ Server Components for Data Fetching
+
+Product data is fetched using Server Components instead of client-side
+fetching.
+
+Benefits: - Reduced JavaScript bundle size - Faster initial render -
+Better SEO - Improved performance metrics
+
+### ✅ Service Layer
+
+API logic is separated into a service layer for better maintainability
+and scalability.
+
+### ❌ Why useEffect Was NOT Used
+
+Data fetching is performed on the server to reduce client-side
+JavaScript and improve TTFB, FCP, and TTI.
+
+Hooks are only used where interactivity is required (e.g., carousel
+state).
+
+------------------------------------------------------------------------
+
+## ⚡ Performance Optimizations
+
+-   Server-Side Rendering (Server Components)
+-   Incremental Static Regeneration (ISR)
+-   Static generation for product detail pages
+-   Next.js Image optimization
+-   Minimal client-side hooks
+
+------------------------------------------------------------------------
+
+## 🧪 Running the Project
+
+Install dependencies:
+
+npm install
+
+Start development server:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+------------------------------------------------------------------------
 
-## Learn More
+## 📈 Performance Strategy Summary
 
-To learn more about Next.js, take a look at the following resources:
+  Technique              Purpose
+  ---------------------- -------------------------
+  Server Components      Reduce JS & improve TTI
+  ISR                    Improve TTFB
+  Static Params          Faster detail pages
+  Image Optimization     Improve FCP
+  Minimal Client Hooks   Reduce hydration cost
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+------------------------------------------------------------------------
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 👨‍💻 Author
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built as a technical assessment project using modern Next.js best
+practices.
