@@ -53,38 +53,10 @@ product.service.ts \# API logic layer │ ├── types/ │ └── product
 
 ## ⚙️ Architecture Decisions
 
-### ✅ Server Components for Data Fetching
-
-Product data is fetched using Server Components instead of client-side
-fetching.
-
-Benefits: - Reduced JavaScript bundle size - Faster initial render -
-Better SEO - Improved performance metrics
-
 ### ✅ Service Layer
 
 API logic is separated into a service layer for better maintainability
 and scalability.
-
-### ❌ Why useEffect Was NOT Used
-
-Data fetching is performed on the server to reduce client-side
-JavaScript and improve TTFB, FCP, and TTI.
-
-Hooks are only used where interactivity is required (e.g., carousel
-state).
-
-------------------------------------------------------------------------
-
-## ⚡ Performance Optimizations
-
--   Server-Side Rendering (Server Components)
--   Incremental Static Regeneration (ISR)
--   Static generation for product detail pages
--   Next.js Image optimization
--   Minimal client-side hooks
-
-------------------------------------------------------------------------
 
 ## 🧪 Running the Project
 
@@ -99,20 +71,6 @@ npm run dev
 Open:
 
 http://localhost:3000
-
-------------------------------------------------------------------------
-
-## 📈 Performance Strategy Summary
-
-  Technique              Purpose
-  ---------------------- -------------------------
-  Server Components      Reduce JS & improve TTI
-  ISR                    Improve TTFB
-  Static Params          Faster detail pages
-  Image Optimization     Improve FCP
-  Minimal Client Hooks   Reduce hydration cost
-
-------------------------------------------------------------------------
 
 ## 👨‍💻 Author
 
