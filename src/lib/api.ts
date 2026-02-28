@@ -1,4 +1,5 @@
-// import axios from "axios";
+import { ProductDetail } from "../types/product";
+
 const BASE_URL = "https://dummyjson.com/products";
 
 export async function getProducts() {
@@ -10,7 +11,7 @@ export async function getProducts() {
     return res.json();
 }
 
-export async function getProduct(id: string) {
+export async function getProduct(id: string): Promise<ProductDetail> {
     const res = await fetch(`${BASE_URL}/${id}`, {
         next: { revalidate: 60 },
     });
